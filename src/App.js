@@ -14,15 +14,20 @@ class App extends Component {
     showPerson:false
   }
 
-  switchNameHandler = (newName) => {
-    console.log("klik");
-    this.setState({
-      persons: [
-        { name:newName,age:20},
-        { name:"Manu",age:36},
-        { name:"Stef",age:41},
-      ]
-    });
+  // switchNameHandler = (newName) => {
+  //   console.log("klik");
+  //   this.setState({
+  //     persons: [
+  //       { name:newName,age:20},
+  //       { name:"Manu",age:36},
+  //       { name:"Stef",age:41},
+  //     ]
+  //   });
+  // }
+  deletePersonHandler = (personIndex) => {
+    const persons = this.state.persons;
+    persons.splice(personIndex, 1);
+    this.setState({persons: persons});
   }
 
   togglePersons = () => {
@@ -44,17 +49,22 @@ class App extends Component {
       border: '1px solid pink',
       cursor: 'pointer'
     }
-    return (
-      <div className="App">
-        <h1>Hi</h1> 
-        <button 
-          style={style}
-          // onClick={() => this.switchNameHandler("Seb")}
-          onClick={this.togglePersons}          
-          >Show Persons</button>
-        { this.state.showPerson ? 
-          <div>
-            <Person 
+
+    let persons = null;
+
+    if( this.state.showPerson ){
+      persons = (
+        <div>
+          { this.state.persons.map((person, index) => {
+            return (
+              <Person
+              name={person.name} 
+              age={person.age}
+              click={() => this.deletePersonHandler(index)}
+              />
+            )
+          }) }
+            {/* <Person 
               name={this.state.persons[0].name} 
               age={this.state.persons[0].age}/>
             <Person 
@@ -67,10 +77,19 @@ class App extends Component {
             </Person>
             <Person 
               name={this.state.persons[2].name} 
-              age={this.state.persons[2].age}/>
+              age={this.state.persons[2].age}/> */}
           </div> 
-            : null
-          }
+      )
+    }
+    return (
+      <div className="App">
+        <h1>Hi</h1> 
+        <button 
+          style={style}
+          // onClick={() => this.switchNameHandler("Seb")}
+          onClick={this.togglePersons}          
+          >Show Persons</button>
+        { persons }
       </div>
     );
   }
