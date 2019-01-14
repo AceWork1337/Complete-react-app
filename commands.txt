@@ -1,0 +1,4 @@
+1.To create structure of react app
+    *create-react-app name_of_app
+2. Start use sass
+    *npm install node-sass

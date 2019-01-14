@@ -1,9 +1,15 @@
 import React from 'react';
+import Radium from 'radium';
 
 import './Person.scss';
 
 const person = (props) => {
-    return  <div className="Persons">
+    const style = {
+        '@media (min-width: 500px)' : {
+            width: '450px'
+        }
+    }
+    return  <div className="Persons" style={style}>
                 <p onClick={props.click}>I'm a {props.name} with {props.age} years and
                     own {Math.floor(Math.random()*30)} cars!
                 </p>
@@ -14,4 +20,4 @@ const person = (props) => {
             </div>
 }
 
-export default person;
+export default Radium(person);
