@@ -8,7 +8,9 @@ const person = (props) => {
     //         width: '450px'
     //     }
     // }
-    return  <div className="Persons" >
+    return  (
+        
+            <div className="Persons" >
                 <p onClick={props.click}>I'm a {props.name} with {props.age} years and
                     own {Math.floor(Math.random()*30)} cars!
                 </p>
@@ -17,6 +19,7 @@ const person = (props) => {
                     onChange={props.changed} 
                     value={props.name}/>
             </div>
+    )
 }
 
 export default person;
