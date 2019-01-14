@@ -89,7 +89,7 @@ class App extends Component {
       )
     }
     return (
-      <div className="App">
+      <div className={"App"}>
         <h1>Hi</h1> 
         <button 
           style={style}
