@@ -5,6 +5,10 @@ import './App.css';
 import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
 class App extends Component {
+  constructor(props){
+    super(props);
+    console.log("Inside constructor appjs");
+  }
   state = {
     persons: [
       { id: "aasdasdas", name: "Maxi", age: 20 },
@@ -13,7 +17,24 @@ class App extends Component {
     ],
     showPerson: false
   }
+componentWillMount(){
+  console.log("Inside component will mount appjs");
+}
+componentDidMount(){
+  console.log("Inside component did mount appjs");
+}
 
+shouldComponentUpdate(nextProps, nextState){
+  console.log("Should component update appjs ", nextProps,nextState)
+  return true;
+}
+componentWillUpdate(nextProps, nextState){
+  console.log("component will update appjs", nextProps, nextState);
+}
+componentDidUpdate(){
+  console.log("component DID update appjs");
+
+}
   // switchNameHandler = (newName) => {
   //   console.log("klik");
   //   this.setState({
@@ -49,6 +70,8 @@ class App extends Component {
     this.setState({ persons: persons });
   }
   render() {
+  console.log("Inside render appjs");
+
     let persons = null;
 
     if (this.state.showPerson) {
