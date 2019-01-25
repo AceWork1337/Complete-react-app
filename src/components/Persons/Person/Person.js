@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import PropTypes from 'prop-types';
 import './Person.scss';
 
 class Person extends Component { 
@@ -19,19 +19,24 @@ class Person extends Component {
         console.log("Inside component did mount personsjs");
       }
      
- render () {
-    return  (
-        
-            <div className="Persons" >
-                <p onClick={this.props.click}>I'm a {this.props.name} with {this.props.age} years and
-                    own {Math.floor(Math.random()*30)} cars!
-                </p>
-                <p>{this.props.children}</p>
-                <input type="text" 
-                    onChange={this.props.changed} 
-                    value={this.props.name}/>
-            </div>
-    )
+    render () {
+        return  (
+            
+                <div className="Persons" >
+                    <p onClick={this.props.click}>I'm a {this.props.name} with {this.props.age} years and
+                        own {Math.floor(Math.random()*30)} cars!
+                    </p>
+                    <p>{this.props.children}</p>
+                    <input type="text" 
+                        onChange={this.props.changed} 
+                        value={this.props.name}/>
+                </div>
+        )
+    }
 }
+Person.propTypes = {
+    click: PropTypes.func,
+    name: PropTypes.string,
+    age: PropTypes.number
 }
 export default Person;
