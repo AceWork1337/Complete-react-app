@@ -17,6 +17,7 @@ class Person extends Component {
       }
       componentDidMount(){
         console.log("Inside component did mount personsjs");
+        this.inputElement.focus();
       }
      
     render () {
@@ -27,7 +28,8 @@ class Person extends Component {
                         own {Math.floor(Math.random()*30)} cars!
                     </p>
                     <p>{this.props.children}</p>
-                    <input type="text" 
+                    <input type="text"
+                        ref = {(inp) => {this.inputElement = inp}}
                         onChange={this.props.changed} 
                         value={this.props.name}/>
                 </div>

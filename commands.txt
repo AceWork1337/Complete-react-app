@@ -4,6 +4,8 @@
     *npm install node-sass
 3. Start use radium
     *npm install --save radium
+4. Start use validator prop-types
+    *npm install --save prop-types
 next
 le.07-100
 
