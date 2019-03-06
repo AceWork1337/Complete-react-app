@@ -7,6 +7,6 @@
 4. Start use validator prop-types
     *npm install --save prop-types
 next
-le.08-112
+le.08-115
 
 back to 07.97(HOC)
